@@ -1,0 +1,70 @@
+//Write a program that generates a random number between 1 and 20 inclusive and asks the user to guess what the number is. If the user’s guess is too high or too low, the program should display an appropriate message. For example: “Too high, try again.” or “Too low, try again.”
+
+//  Walls_Program2_practice
+//
+//  Created by Malik Walls on 12/23/19.
+//  Copyright © 2019 CS 2010. All rights reserved.
+//
+
+#include <iostream>
+// Help Generate Random Number and Computer Time
+#include <cstdlib>
+#include <time.h>
+
+using namespace std;
+
+int main()
+{
+    //Declaring Variables
+    int random_Number, guess;
+    int num_Tries=1;
+    int max_Guess=20;
+    // This is to stop the while looop
+    bool userWin=false;
+    
+    //Random Number and computer time
+    srand(time(0));
+    random_Number = 1+rand()%20;
+    
+    cout << "??????????????????????????????????????????" << endl;
+    cout  << endl << " I'm thinking of a number between 1-20. " << endl;
+    cout << endl <<  "??????????????????????????????????????????" << endl;
+    cout << " Can you guess what it is? " << endl;
+    cout << endl <<  " Please enter your guess: ";
+    cin >> guess;
+    
+    // Loop for the Game
+while (userWin != true)
+{
+    // Ensure user is guessing in range
+    if (guess > max_Guess)
+    {
+        cout << endl <<  "********** ERROR **********" << endl;
+        cout  << " You must enter a number between 1-20, inclusive " << endl ;
+        cout << "********** Try-Again **********" << endl;
+    }
+    // Condition to ensure number is'nt too low
+        if ( guess < random_Number)
+    {
+        num_Tries++;
+        cout << " Sorry, number is to low. Try again! " << endl;
+        cin >> guess;
+    }
+    // Condition to ensure number is'nt to high
+        else if (guess > random_Number)
+        {
+            num_Tries++;
+            cout << "Sorry, the number is too high. Guess again. ";
+            cin >> guess;
+        }
+        //if user guessed the number break-out loop
+        else
+        {
+            cout << endl << "Great job. " << guess << " is exactly the number I was thinking." << endl ;
+            cout << "It only took you " << num_Tries << " attempts to guess it right." << endl;
+            userWin = true;
+        }
+}
+    
+    cout << endl; return 0;
+}
