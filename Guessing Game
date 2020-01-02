@@ -21,50 +21,50 @@ int main()
     int max_Guess=20;
     // This is to stop the while looop
     bool userWin=false;
-    
+
     //Random Number and computer time
     srand(time(0));
     random_Number = 1+rand()%20;
-    
+
     cout << "??????????????????????????????????????????" << endl;
     cout  << endl << " I'm thinking of a number between 1-20. " << endl;
     cout << endl <<  "??????????????????????????????????????????" << endl;
     cout << " Can you guess what it is? " << endl;
     cout << endl <<  " Please enter your guess: ";
     cin >> guess;
-    
+
     // Loop for the Game
-while (userWin != true)
-{
-    // Ensure user is guessing in range
-    if (guess > max_Guess)
+    while (userWin != true)
     {
-        cout << endl <<  "********** ERROR **********" << endl;
-        cout  << " You must enter a number between 1-20, inclusive " << endl ;
-        cout << "********** Try-Again **********" << endl;
-    }
-    // Condition to ensure number is'nt too low
+        // Ensure user is guessing in range
+        if (guess > max_Guess)
+        {
+            cout << endl <<  "********** ERROR **********" << endl;
+            cout  << " You must enter a number between 1-20, inclusive " << endl ;
+            cout << "********** Try-Again **********" << endl;
+        }
+        // Condition to ensure number is'nt too low
         if ( guess < random_Number)
-    {
-        num_Tries++;
-        cout << " Sorry, number is to low. Try again! " << endl;
-        cin >> guess;
-    }
-    // Condition to ensure number is'nt to high
+        {
+            num_Tries++;
+            cout << " Sorry, number is to low. Try again! ";
+            cin >> guess;
+        }
+            // Condition to ensure number is'nt to high
         else if (guess > random_Number)
         {
             num_Tries++;
             cout << "Sorry, the number is too high. Guess again. ";
             cin >> guess;
         }
-        //if user guessed the number break-out loop
+            //if user guessed the number break-out loop
         else
         {
-            cout << endl << "Great job. " << guess << " is exactly the number I was thinking." << endl ;
-            cout << "It only took you " << num_Tries << " attempts to guess it right." << endl;
+            cout << endl << "Great job. " << guess << " is exactly the number I was thinking."<< endl;
+            cout << "It only took you " << num_Tries << " attempts to guess it right.";
             userWin = true;
         }
-}
-    
+    }
+
     cout << endl; return 0;
 }
